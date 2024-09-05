@@ -36,11 +36,11 @@ WORKDIR /home/app
 COPY --from=dep-resolver /node_modules ./node_modules
 COPY --from=builder /home/app/build ./build
 COPY package.json ./
-COPY deployment.yaml ./
-COPY service.yaml ./
+# COPY deployment.yaml ./
+# COPY service.yaml ./
 
 # Turn down the verbosity to default level.
-ENV NPM_CONFIG_LOGLEVEL warn
+ENV NPM_CONFIG_LOGLEVEL=warn
 
 ENV FUNCTION_NAME="event-flow-rule-processor"
 ENV RULE_VERSION="1.0.0"
